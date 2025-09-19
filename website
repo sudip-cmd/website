@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUDIP Gadgets - Premium Digital Devices | Kathmandu</title>
+    <link rel="canonical" href="https://sudipgadgets.com">
+    <meta property="og:url" content="https://sudipgadgets.com">
+    <meta property="og:title" content="SUDIP Gadgets - Premium Digital Devices">
+    <meta property="og:description" content="Kathmandu's premier destination for cutting-edge digital devices and accessories">
+    <meta name="description" content="SUDIP Gadgets - Your trusted partner for premium mobile phones, smartwatches, audio devices and accessories in Kathmandu, Nepal">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b35;
+            --dark: #0a0a0a;
+            --light: #f8fafc;
+        }
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+        }
+        
+        .tech-font { font-family: 'Orbitron', monospace; }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 60px var(--primary);
+            animation: pulse-glow 2s infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary), 0 0 60px var(--primary); }
+            to { box-shadow: 0 0 30px var(--primary), 0 0 60px var(--primary), 0 0 90px var(--primary); }
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .spec-item {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 53, 0.1));
+            border-left: 3px solid var(--primary);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, var(--secondary), #ff8c42);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .price-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .order-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .order-modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .admin-panel {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .admin-content {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            margin: 2% auto;
+            padding: 30px;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1200px;
+            height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+
+        .order-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .order-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+
+        .order-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-new { background: #ff6b35; color: white; }
+        .status-confirmed { background: #00d4ff; color: black; }
+        .status-delivered { background: #4ade80; color: black; }
+        .status-cancelled { background: #ef4444; color: white; }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), #0ea5e9);
+            color: black;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 3000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .admin-login {
+            max-width: 400px;
+            margin: 20vh auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="order-modal">
+        <div class="order-modal-content">
+            <span class="close-modal" onclick="closeOrderModal()">&times;</span>
+            <h2 class="tech-font text-2xl font-bold text-cyan-400 mb-6">🛒 PLACE YOUR ORDER</h2>
+            <div id="orderDetails" class="mb-6">
+                <!-- Order details will be populated here -->
+            </div>
+            <form id="orderForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+                    <input type="text" id="customerName" required class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Your full name">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Phone Number *</label>
+                    <input type="tel" id="customerPhone" required class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="+977-98XXXXXXXX">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                    <input type="email" id="customerEmail" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="your.email@example.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Delivery Address *</label>
+                    <textarea id="customerAddress" required rows="3" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Your delivery address in Kathmandu"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Quantity</label>
+                    <select id="orderQuantity" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                        <option value="1">1 Unit</option>
+                        <option value="2">2 Units</option>
+                        <option value="3">3 Units</option>
+                        <option value="4">4 Units</option>
+                        <option value="5">5 Units</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Special Instructions</label>
+                    <textarea id="orderNotes" rows="2" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Any special requests or preferred delivery time"></textarea>
+                </div>
+                <button type="submit" class="w-full neon-glow bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:scale-105 transition-all duration-300">
+                    CONFIRM ORDER 🚀
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="tech-font text-3xl font-bold text-cyan-400">🔐 SUDIP GADGETS ADMIN</h2>
+                <button onclick="closeAdminPanel()" class="text-gray-400 hover:text-red-400 text-2xl">&times;</button>
+            </div>
+
+            <!-- Admin Login -->
+            <div id="adminLogin" class="admin-login">
+                <h3 class="text-xl font-bold text-cyan-400 mb-4 text-center">Admin Login</h3>
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Username</label>
+                        <input type="text" id="adminUsername" required class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Enter username">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Password</label>
+                        <input type="password" id="adminPassword" required class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-bold hover:scale-105 transition-all duration-300">
+                        LOGIN 🔐
+                    </button>
+                </form>
+                <div class="mt-4 text-center text-gray-400 text-sm">
+                    Default: admin / sudip2024
+                </div>
+            </div>
+
+            <!-- Admin Dashboard -->
+            <div id="adminDashboard" style="display: none;">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="glass-card p-6 text-center">
+                        <div class="text-3xl text-cyan-400 mb-2">📦</div>
+                        <div class="text-2xl font-bold text-white" id="totalOrders">0</div>
+                        <div class="text-gray-400">Total Orders</div>
+                    </div>
+                    <div class="glass-card p-6 text-center">
+                        <div class="text-3xl text-orange-400 mb-2">🔔</div>
+                        <div class="text-2xl font-bold text-white" id="newOrders">0</div>
+                        <div class="text-gray-400">New Orders</div>
+                    </div>
+                    <div class="glass-card p-6 text-center">
+                        <div class="text-3xl text-green-400 mb-2">✅</div>
+                        <div class="text-2xl font-bold text-white" id="confirmedOrders">0</div>
+                        <div class="text-gray-400">Confirmed</div>
+                    </div>
+                    <div class="glass-card p-6 text-center">
+                        <div class="text-3xl text-blue-400 mb-2">🚚</div>
+                        <div class="text-2xl font-bold text-white" id="deliveredOrders">0</div>
+                        <div class="text-gray-400">Delivered</div>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-white">📋 Order Management</h3>
+                    <div class="flex gap-4">
+                        <button onclick="filterOrders('all')" class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-500">All</button>
+                        <button onclick="filterOrders('new')" class="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-500">New</button>
+                        <button onclick="filterOrders('confirmed')" class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-500">Confirmed</button>
+                        <button onclick="filterOrders('delivered')" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500">Delivered</button>
+                    </div>
+                </div>
+
+                <div id="ordersList">
+                    <!-- Orders will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="tech-font text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                        SUDIP GADGETS
+                    </div>
+                    <div class="ml-3 text-xs text-gray-400">KATHMANDU</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">Home</a>
+                        <a href="#phones" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">Phones</a>
+                        <a href="#watches" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">Watches</a>
+                        <a href="#audio" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">Audio</a>
+                        <a href="#accessories" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">Accessories</a>
+                        <a href="#contact" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">Contact</a>
+                        <button onclick="openAdminPanel()" class="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-all duration-300">🔐</button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-cyan-400">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center tech-grid relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/20 to-blue-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="floating">
+                    <h1 class="tech-font text-6xl md:text-8xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">
+                        SUDIP GADGETS
+                    </h1>
+                </div>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
+                    🚀 NEXT-GEN DIGITAL DEVICES • KATHMANDU'S TECH HUB • PREMIUM QUALITY GUARANTEED
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button onclick="document.getElementById('phones').scrollIntoView({behavior: 'smooth'})" 
+                            class="neon-glow bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all duration-300">
+                        EXPLORE TECH 🔥
+                    </button>
+                    <div class="text-cyan-400 font-semibold">🌐 sudipgadgets.com</div>
+                    <div class="text-cyan-400 font-semibold">📍 Kathmandu</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Phones Section -->
+    <section id="phones" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="tech-font text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    📱 MOBILE PHONES
+                </h2>
+                <p class="text-xl text-gray-300">Latest flagship smartphones with cutting-edge technology</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- iPhone 15 Pro Max -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">📱</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">iPhone 15 Pro Max</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('iPhone 15 Pro Max', 'NPR 1,89,900')">NPR 1,89,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Display</div>
+                            <div class="text-gray-300">6.7" Super Retina XDR OLED</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Processor</div>
+                            <div class="text-gray-300">A17 Pro Bionic Chip</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Camera</div>
+                            <div class="text-gray-300">48MP Main + 12MP Ultra Wide + 12MP Telephoto</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Storage</div>
+                            <div class="text-gray-300">256GB / 512GB / 1TB</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">4441mAh, 27W Fast Charging</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('iPhone 15 Pro Max', 'NPR 1,89,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+
+                <!-- Samsung Galaxy S24 Ultra -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">📱</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Samsung Galaxy S24 Ultra</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('Samsung Galaxy S24 Ultra', 'NPR 1,64,900')">NPR 1,64,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Display</div>
+                            <div class="text-gray-300">6.8" Dynamic AMOLED 2X, 120Hz</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Processor</div>
+                            <div class="text-gray-300">Snapdragon 8 Gen 3</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Camera</div>
+                            <div class="text-gray-300">200MP Main + 50MP Periscope + 12MP Ultra Wide</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Storage</div>
+                            <div class="text-gray-300">256GB / 512GB / 1TB</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">5000mAh, 45W Super Fast Charging</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('Samsung Galaxy S24 Ultra', 'NPR 1,64,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+
+                <!-- OnePlus 12 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">📱</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">OnePlus 12</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('OnePlus 12', 'NPR 1,24,900')">NPR 1,24,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Display</div>
+                            <div class="text-gray-300">6.82" LTPO AMOLED, 120Hz</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Processor</div>
+                            <div class="text-gray-300">Snapdragon 8 Gen 3</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Camera</div>
+                            <div class="text-gray-300">50MP Main + 64MP Periscope + 48MP Ultra Wide</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Storage</div>
+                            <div class="text-gray-300">256GB / 512GB</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">5400mAh, 100W SuperVOOC</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('OnePlus 12', 'NPR 1,24,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smartwatches Section -->
+    <section id="watches" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="tech-font text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    ⌚ SMARTWATCHES
+                </h2>
+                <p class="text-xl text-gray-300">Advanced fitness tracking and smart connectivity</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- Apple Watch Series 9 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">⌚</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Apple Watch Series 9</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('Apple Watch Series 9', 'NPR 54,900')">NPR 54,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Display</div>
+                            <div class="text-gray-300">45mm Always-On Retina</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Health Features</div>
+                            <div class="text-gray-300">ECG, Blood Oxygen, Heart Rate</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Fitness</div>
+                            <div class="text-gray-300">GPS, Cellular, Water Resistant</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">18 hours, Fast Charging</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('Apple Watch Series 9', 'NPR 54,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+
+                <!-- Samsung Galaxy Watch 6 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">⌚</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Samsung Galaxy Watch 6</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('Samsung Galaxy Watch 6', 'NPR 42,900')">NPR 42,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Display</div>
+                            <div class="text-gray-300">44mm Super AMOLED</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Health Features</div>
+                            <div class="text-gray-300">Body Composition, Sleep Tracking</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Fitness</div>
+                            <div class="text-gray-300">90+ Workout Modes, GPS</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">40 hours, Wireless Charging</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('Samsung Galaxy Watch 6', 'NPR 42,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+
+                <!-- Amazfit GTR 4 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">⌚</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Amazfit GTR 4</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('Amazfit GTR 4', 'NPR 24,900')">NPR 24,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Display</div>
+                            <div class="text-gray-300">46mm AMOLED, Always-On</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Health Features</div>
+                            <div class="text-gray-300">Heart Rate, SpO2, Stress</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Fitness</div>
+                            <div class="text-gray-300">150+ Sports Modes, GPS</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">14 days, Magnetic Charging</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('Amazfit GTR 4', 'NPR 24,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Section -->
+    <section id="audio" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="tech-font text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    🎧 AUDIO DEVICES
+                </h2>
+                <p class="text-xl text-gray-300">Premium sound quality and noise cancellation</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                <!-- AirPods Pro 2 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">🎧</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">AirPods Pro 2</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('AirPods Pro 2', 'NPR 34,900')">NPR 34,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Audio</div>
+                            <div class="text-gray-300">Adaptive Audio, Spatial Audio</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Noise Cancellation</div>
+                            <div class="text-gray-300">Active Noise Cancellation 2.0</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">6hrs + 24hrs with case</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Features</div>
+                            <div class="text-gray-300">Touch Control, Find My, IPX4</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('AirPods Pro 2', 'NPR 34,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+
+                <!-- Sony WH-1000XM5 -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">🎧</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Sony WH-1000XM5</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('Sony WH-1000XM5', 'NPR 42,900')">NPR 42,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Audio</div>
+                            <div class="text-gray-300">Hi-Res Audio, LDAC Codec</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Noise Cancellation</div>
+                            <div class="text-gray-300">Industry Leading ANC</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">30hrs, Quick Charge</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Features</div>
+                            <div class="text-gray-300">Multipoint, Voice Assistant</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('Sony WH-1000XM5', 'NPR 42,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+
+                <!-- Samsung Galaxy Buds2 Pro -->
+                <div class="glass-card rounded-2xl p-6">
+                    <div class="text-center mb-6">
+                        <div class="text-6xl mb-4">🎧</div>
+                        <h3 class="text-2xl font-bold text-cyan-400 mb-2">Galaxy Buds2 Pro</h3>
+                        <div class="price-tag inline-block px-4 py-2 rounded-full text-lg" onclick="placeOrder('Galaxy Buds2 Pro', 'NPR 18,900')">NPR 18,900 - CLICK TO ORDER</div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Audio</div>
+                            <div class="text-gray-300">360 Audio, Hi-Fi Sound</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Noise Cancellation</div>
+                            <div class="text-gray-300">Intelligent ANC</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Battery</div>
+                            <div class="text-gray-300">5hrs + 18hrs with case</div>
+                        </div>
+                        <div class="spec-item p-3 rounded-lg">
+                            <div class="font-semibold text-cyan-300">Features</div>
+                            <div class="text-gray-300">IPX7, Wireless Charging</div>
+                        </div>
+                    </div>
+                    <button onclick="placeOrder('Galaxy Buds2 Pro', 'NPR 18,900')" class="w-full mt-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:scale-105 transition-all duration-300">
+                        ORDER NOW 🛒
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessories Section -->
+    <section id="accessories" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="tech-font text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    🔌 ACCESSORIES
+                </h2>
+                <p class="text-xl text-gray-300">Essential accessories for your digital lifestyle</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Phone Cases -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-lg font-bold text-cyan-400 mb-2">Premium Phone Cases</h3>
+                    <p class="text-gray-300 text-sm mb-4">Drop protection, wireless charging compatible</p>
+                    <div class="price-tag inline-block px-3 py-1 rounded-full text-sm mb-4" onclick="placeOrder('Premium Phone Cases', 'NPR 1,500 - 4,500')">NPR 1,500 - 4,500 - CLICK TO ORDER</div>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• Shockproof Design</li>
+                        <li>• Multiple Colors</li>
+                        <li>• Camera Protection</li>
+                        <li>• Easy Installation</li>
+                    </ul>
+                </div>
+
+                <!-- Power Banks -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4">🔋</div>
+                    <h3 class="text-lg font-bold text-cyan-400 mb-2">Fast Charging Power Banks</h3>
+                    <p class="text-gray-300 text-sm mb-4">20,000mAh capacity, PD & QC support</p>
+                    <div class="price-tag inline-block px-3 py-1 rounded-full text-sm mb-4" onclick="placeOrder('Fast Charging Power Banks', 'NPR 3,500 - 8,900')">NPR 3,500 - 8,900 - CLICK TO ORDER</div>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• 65W Fast Charging</li>
+                        <li>• Multiple Ports</li>
+                        <li>• LED Display</li>
+                        <li>• Compact Design</li>
+                    </ul>
+                </div>
+
+                <!-- Wireless Chargers -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-lg font-bold text-cyan-400 mb-2">Wireless Chargers</h3>
+                    <p class="text-gray-300 text-sm mb-4">15W fast wireless charging pads</p>
+                    <div class="price-tag inline-block px-3 py-1 rounded-full text-sm mb-4" onclick="placeOrder('Wireless Chargers', 'NPR 2,500 - 5,500')">NPR 2,500 - 5,500 - CLICK TO ORDER</div>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• Qi Certified</li>
+                        <li>• LED Indicators</li>
+                        <li>• Anti-Slip Design</li>
+                        <li>• Universal Compatible</li>
+                    </ul>
+                </div>
+
+                <!-- Screen Protectors -->
+                <div class="glass-card rounded-xl p-6 text-center">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-lg font-bold text-cyan-400 mb-2">Tempered Glass</h3>
+                    <p class="text-gray-300 text-sm mb-4">9H hardness, crystal clear protection</p>
+                    <div class="price-tag inline-block px-3 py-1 rounded-full text-sm mb-4" onclick="placeOrder('Tempered Glass', 'NPR 800 - 2,500')">NPR 800 - 2,500 - CLICK TO ORDER</div>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• Scratch Resistant</li>
+                        <li>• Bubble-Free</li>
+                        <li>• Touch Sensitive</li>
+                        <li>• Easy Application</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="tech-font text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    📞 CONTACT US
+                </h2>
+                <p class="text-xl text-gray-300">Visit our store in Kathmandu or get in touch</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">🏪 SUDIP GADGETS STORE</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl">📍</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Store Location</h4>
+                                <p class="text-gray-300">Kathmandu<br>Nepal - 44600</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl">📞</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Phone & WhatsApp</h4>
+                                <p class="text-gray-300">+977-9708090179</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl">🕒</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Store Hours</h4>
+                                <p class="text-gray-300">Sunday - Friday: 10:00 AM - 8:00 PM<br>Saturday: 10:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="text-2xl">✉️</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Email</h4>
+                                <p class="text-gray-300">xorokanxo3472@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">💬 SEND MESSAGE</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Your full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="+977-98XXXXXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Product Interest</label>
+                            <select class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                                <option value="">Select Product Category</option>
+                                <option value="phones">Mobile Phones</option>
+                                <option value="watches">Smartwatches</option>
+                                <option value="audio">Audio Devices</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-white/10 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="button" onclick="alert('🚀 Thank you for your interest! This is a demo form. In a real website, this would send your message directly to SRISU Gadgets team in Kathmandu.')" 
+                                class="w-full neon-glow bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:scale-105 transition-all duration-300">
+                            SEND MESSAGE 🚀
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 backdrop-blur-lg border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="tech-font text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4">
+                        SUDIP GADGETS
+                    </div>
+                    <p class="text-gray-400 mb-4">Kathmandu's premier destination for cutting-edge digital devices and accessories.</p>
+                    <div class="text-cyan-400">📍 Kathmandu</div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">🛍️ Products</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#phones" class="hover:text-cyan-400 transition-colors">📱 Mobile Phones</a></li>
+                        <li><a href="#watches" class="hover:text-cyan-400 transition-colors">⌚ Smartwatches</a></li>
+                        <li><a href="#audio" class="hover:text-cyan-400 transition-colors">🎧 Audio Devices</a></li>
+                        <li><a href="#accessories" class="hover:text-cyan-400 transition-colors">🔌 Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">🛠️ Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Device Repair</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Warranty Support</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Trade-in Program</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Technical Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white mb-4">🌐 Connect</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Facebook</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">TikTok</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition-colors">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 SUDIP GADGETS. All rights reserved. | 🌐 sudipgadgets.com | Kathmandu, Nepal 🇳🇵</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentProduct = '';
+        let currentPrice = '';
+        let orders = JSON.parse(localStorage.getItem('sudipOrders') || '[]');
+        let isAdminLoggedIn = false;
+
+        // Notification System
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification show ${type}`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 4000);
+        }
+
+        function placeOrder(productName, price) {
+            currentProduct = productName;
+            currentPrice = price;
+            
+            document.getElementById('orderDetails').innerHTML = `
+                <div class="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 p-4 rounded-lg border border-cyan-400/30">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-2">${productName}</h3>
+                    <p class="text-2xl font-bold text-orange-400">${price}</p>
+                </div>
+            `;
+            
+            document.getElementById('orderModal').style.display = 'block';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const orderModal = document.getElementById('orderModal');
+            const adminPanel = document.getElementById('adminPanel');
+            if (event.target == orderModal) {
+                orderModal.style.display = 'none';
+            }
+            if (event.target == adminPanel) {
+                adminPanel.style.display = 'none';
+            }
+        }
+
+        // Handle order form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const email = document.getElementById('customerEmail').value;
+            const address = document.getElementById('customerAddress').value;
+            const quantity = document.getElementById('orderQuantity').value;
+            const notes = document.getElementById('orderNotes').value;
+
+            if (!name || !phone || !address) {
+                alert('⚠️ Please fill in all required fields (Name, Phone, Address)');
+                return;
+            }
+
+            // Create order object
+            const orderId = 'SD' + Date.now().toString().slice(-6);
+            const newOrder = {
+                id: orderId,
+                product: currentProduct,
+                price: currentPrice,
+                quantity: quantity,
+                customer: {
+                    name: name,
+                    phone: phone,
+                    email: email || 'Not provided',
+                    address: address
+                },
+                notes: notes || 'None',
+                status: 'new',
+                timestamp: new Date().toLocaleString(),
+                date: new Date().toISOString()
+            };
+
+            // Save order
+            orders.unshift(newOrder);
+            localStorage.setItem('sudipOrders', JSON.stringify(orders));
+
+            // Show notifications
+            showNotification(`🎉 Order placed successfully! Order ID: ${orderId}`);
+            
+            // Admin notification (if logged in)
+            if (isAdminLoggedIn) {
+                setTimeout(() => {
+                    showNotification(`🔔 New order received from ${name}`, 'admin');
+                    updateAdminDashboard();
+                }, 1000);
+            }
+
+            // Show success message to customer
+            alert(`🎉 Order Placed Successfully!
+
+Thank you ${name}! Your order for ${currentProduct} has been received.
+
+📞 We will contact you at ${phone} within 2 hours to confirm your order and arrange delivery to your address in Kathmandu.
+
+💳 Payment: Cash on Delivery available
+🚚 Delivery: Same day delivery in Kathmandu
+📱 WhatsApp: +977-9708090179
+
+Order ID: ${orderId}`);
+
+            // Reset form and close modal
+            document.getElementById('orderForm').reset();
+            closeOrderModal();
+        });
+
+        // Admin Panel Functions
+        function openAdminPanel() {
+            document.getElementById('adminPanel').style.display = 'block';
+            if (isAdminLoggedIn) {
+                showAdminDashboard();
+            } else {
+                showAdminLogin();
+            }
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+
+        function showAdminLogin() {
+            document.getElementById('adminLogin').style.display = 'block';
+            document.getElementById('adminDashboard').style.display = 'none';
+        }
+
+        function showAdminDashboard() {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminDashboard').style.display = 'block';
+            updateAdminDashboard();
+        }
+
+        // Admin Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            // Simple authentication (in real app, use secure backend)
+            if (username === 'admin' && password === 'sudip2024') {
+                isAdminLoggedIn = true;
+                showAdminDashboard();
+                showNotification('🔐 Admin login successful!');
+            } else {
+                alert('❌ Invalid credentials! Try: admin / sudip2024');
+            }
+        });
+
+        function updateAdminDashboard() {
+            const totalOrders = orders.length;
+            const newOrders = orders.filter(order => order.status === 'new').length;
+            const confirmedOrders = orders.filter(order => order.status === 'confirmed').length;
+            const deliveredOrders = orders.filter(order => order.status === 'delivered').length;
+
+            document.getElementById('totalOrders').textContent = totalOrders;
+            document.getElementById('newOrders').textContent = newOrders;
+            document.getElementById('confirmedOrders').textContent = confirmedOrders;
+            document.getElementById('deliveredOrders').textContent = deliveredOrders;
+
+            displayOrders();
+        }
+
+        function displayOrders(filter = 'all') {
+            const ordersList = document.getElementById('ordersList');
+            let filteredOrders = orders;
+
+            if (filter !== 'all') {
+                filteredOrders = orders.filter(order => order.status === filter);
+            }
+
+            if (filteredOrders.length === 0) {
+                ordersList.innerHTML = '<div class="text-center text-gray-400 py-8">No orders found</div>';
+                return;
+            }
+
+            ordersList.innerHTML = filteredOrders.map(order => `
+                <div class="order-item">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h4 class="text-lg font-bold text-cyan-400">${order.id}</h4>
+                            <p class="text-gray-300">${order.timestamp}</p>
+                        </div>
+                        <span class="order-status status-${order.status}">${order.status.toUpperCase()}</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-semibold text-white mb-2">📱 Product Details</h5>
+                            <p class="text-gray-300">${order.product}</p>
+                            <p class="text-orange-400 font-bold">${order.price}</p>
+                            <p class="text-gray-400">Quantity: ${order.quantity}</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold text-white mb-2">👤 Customer Details</h5>
+                            <p class="text-gray-300">${order.customer.name}</p>
+                            <p class="text-gray-300">📞 ${order.customer.phone}</p>
+                            <p class="text-gray-300">📧 ${order.customer.email}</p>
+                            <p class="text-gray-300">📍 ${order.customer.address}</p>
+                        </div>
+                    </div>
+                    
+                    ${order.notes !== 'None' ? `
+                        <div class="mt-3">
+                            <h5 class="font-semibold text-white mb-1">📝 Notes</h5>
+                            <p class="text-gray-300">${order.notes}</p>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="flex gap-2 mt-4">
+                        <button onclick="updateOrderStatus('${order.id}', 'confirmed')" 
+                                class="px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-500 text-sm">
+                            ✅ Confirm
+                        </button>
+                        <button onclick="updateOrderStatus('${order.id}', 'delivered')" 
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-500 text-sm">
+                            🚚 Delivered
+                        </button>
+                        <button onclick="updateOrderStatus('${order.id}', 'cancelled')" 
+                                class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 text-sm">
+                            ❌ Cancel
+                        </button>
+                        <button onclick="deleteOrder('${order.id}')" 
+                                class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-500 text-sm">
+                            🗑️ Delete
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterOrders(status) {
+            displayOrders(status);
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            const orderIndex = orders.findIndex(order => order.id === orderId);
+            if (orderIndex !== -1) {
+                orders[orderIndex].status = newStatus;
+                localStorage.setItem('sudipOrders', JSON.stringify(orders));
+                updateAdminDashboard();
+                showNotification(`Order ${orderId} status updated to ${newStatus}`);
+            }
+        }
+
+        function deleteOrder(orderId) {
+            if (confirm('Are you sure you want to delete this order?')) {
+                orders = orders.filter(order => order.id !== orderId);
+                localStorage.setItem('sudipOrders', JSON.stringify(orders));
+                updateAdminDashboard();
+                showNotification(`Order ${orderId} deleted`);
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('#home');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Add glow effect on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.3)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9819c2289486ede5',t:'MTc1ODI5MTk5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
